@@ -9,7 +9,6 @@ movies = pd.read_csv("")
 
 # movies.info()
 """""""""
-INFO DO DATASET UTILIZADO
 
 RangeIndex: 14828 entries, 0 to 14827
 Data columns (total 6 columns):
