@@ -26,7 +26,7 @@ memory usage: 695.2+ KB
 None
 """""""""
 
-# colunas utilizadas
+# columns
 title = movies['title'].str.lower()
 plot = movies['plot_synopsis']
 genre = movies['tags']
@@ -35,7 +35,7 @@ genre = movies['tags']
 vectorizer = TfidfVectorizer(stop_words='english')
 PlotVector = vectorizer.fit_transform(plot)
 
-# verificação da existência do filme
+# verifying the existece of the movie
 while True:
     movie = input("Insira um filme que te interessa: ").strip().lower()
 
@@ -47,13 +47,13 @@ while True:
     else:
         print(f"Desculpe, o filme {movie} não foi encontrado. Tente novamente.")
 
-# similaridade
+# similarity
 similarity = cosine_similarity(PlotVector[idx], PlotVector)
 
-# n fimlmes mais similares, exceto o próprio
+# the n most similar movies, except the input
 similar_movies = similarity.argsort()[0][-n-1:-1][::-1]
 
-# recomendação e saída
+# recommendation and output
 def byplot(similar_movies):
 
     if len(similar_movies) == 0:
